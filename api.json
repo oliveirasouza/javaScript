@@ -1,0 +1,21 @@
+{
+    "tarefas": [
+        {
+            "file": "index.html",
+            "edits": [
+                {
+                    "tipo": "modificação",
+                    "detalhes": "Alterado o atributo lang de 'e' para 'pt-BR' na tag <html>."
+                },
+                {
+                    "tipo": "modificação",
+                    "detalhes": "Alterado o conteúdo da tag <title> de 'Document' para 'Java Script'."
+                },
+                {
+                    "tipo": "adição",
+                    "detalhes": "Adicionada a tag <script> com o atributo src apontando para 'index.js' antes do fechamento da tag </body>."
+                }
+            ]
+        }
+    ]
+}

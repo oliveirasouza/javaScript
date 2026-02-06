@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+    
+    <header>
+        <input type="text" id="busca" placeholder="Pesquisar por titulo...">
+    </header>
+    <main>
+        <section id="tarefas">
+            <!-- As tarefas serão inseridas aqui dinamicamente -->
+             <h2>
+                Tarefas <button  id="btnNovaTarefa" onclick="novaTarefa()">Nova tarefa</button>
+             </h2>
+             <h6>
+                <p id="empty-message">Nenhuma tarefa encontrada!</p>
+             </h6>
+
+        </section>
+        <section id="overlay" onclick="fecharModal()"></section>></section>
+        <div class="modal" id="novaTarefa">
+            <form >
+                <h3>Criar tarefa <box-icon name='x' size='md' onclick="fecharModal()"></box-icon></h3>
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+                <label for="descricao">Descrição:</label>
+                <textarea  id="descricao"></textarea>
+                <button>Criar</button>
+            </form>
+
+        </div>
+    </main>
+    <script src="index.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+
+</body>
+</html>
