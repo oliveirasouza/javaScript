@@ -51,23 +51,22 @@ header input {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#tarefas ul li h5{
+#lista ul li h5{
     font-size: 16px;
     margin-bottom: 16px;
     color: #333;
 }
 
 
-#tarefas ul li .action{
+#lista .actions {
   display: flex;
   justify-content: flex-end;
   margin-top: 16px;
   cursor: pointer;
-  fill: #999;
+  fill: #999999;
 }
 
-
-#tarefas ul li .action box-icon:hover{
+#lista box-icon:hover{
    fill: red;
    cursor: pointer;
 }
@@ -235,4 +234,15 @@ header input {
 
 .modal form button:hover {
     background-color: indigo;
+}
+
+
+.mensagem-feedback {
+  display: none;
+  margin-top: 10px;
+  padding: 8px;
+  background: #e6ffe6;
+  color: #2d7a2d;
+  border-radius: 4px;
+  font-weight: bold;
 }

@@ -1,50 +1,63 @@
-// Abre o modal de criação de tarefas
-// Torna o overlay e o modal visíveis na tela
-function abrirModal() {
-    const overlay = document.getElementById('overlay');
-    const modal = document.getElementById('abrirModal');
+const overlay = document.getElementById('overlay');
+const modal = document.getElementById('abrirModal');
+const lista = document.getElementById('lista');
+const emptyMessage = document.getElementById('empty-message');
+const feedbackMessage = document.getElementById('feedback-message');
 
+
+
+function abrirModal() {
     overlay.style.visibility = 'visible';
     overlay.style.opacity = '1';
     modal.style.visibility = 'visible';
     modal.style.opacity = '1';
 }
 
-// Fecha o modal de criação de tarefas
-// Esconde o overlay e o modal da tela
 function fecharModal() {
-    const overlay = document.getElementById('overlay');
-    const modal = document.getElementById('abrirModal');
-
     overlay.style.visibility = 'hidden';
     overlay.style.opacity = '0';
     modal.style.visibility = 'hidden';
     modal.style.opacity = '0';
 }
 
-// Ao clicar no botão "Nova Tarefa"
-// esconde a mensagem "Nenhuma tarefa encontrada!"
-document.getElementById('btnNovaTarefa').addEventListener('click', () => {
-    document.getElementById('empty-message').style.display = 'none';
-});
 
-// Referência para a lista (<ul>) onde as tarefas serão inseridas
-const lista = document.getElementById('lista');
+function mostrarMensagem(texto) {
+    feedbackMessage.innerText = texto;
+    feedbackMessage.style.display = 'block';
 
-// Referência para a mensagem exibida quando não há tarefas
-const emptyMessage = document.getElementById('empty-message');
+    setTimeout(() => {
+        feedbackMessage.style.display = 'none';
+        feedbackMessage.innerText = '';
+    }, 2000);
+}
 
-// Busca as tarefas no arquivo api.json usando fetch
-// Quando recebe os dados, chama a função inserirTarefas
+function esconderMensagem() {
+    feedbackMessage.style.display = 'none';
+    feedbackMessage.innerText = '';
+}
+
+
+
+
+// function buscarTarefas() {
+//     fetch('http://localhost:3000/tarefas')
+//         .then(res => res.json())
+//         .then(tarefas => {
+//             esconderMensagem();
+//             inserirTarefas(tarefas);
+//         })
+//         .catch(() => mostrarMensagem('Erro ao buscar tarefas'));
+// }
+
+
 function buscarTarefas() {
     fetch('http://localhost:3000/tarefas')
         .then(res => res.json())
-        .then(dados => inserirTarefas(dados))
-        .catch(err => console.error(err));
+        .then(tarefas => inserirTarefas(tarefas))
+        .catch(() => mostrarMensagem('Erro ao buscar tarefas'));
 }
 
-// Insere as tarefas recebidas da API no HTML
-// Se não houver tarefas, mostra a mensagem de lista vazia
+
 function inserirTarefas(tarefas) {
     lista.innerHTML = '';
 
@@ -56,16 +69,27 @@ function inserirTarefas(tarefas) {
     emptyMessage.style.display = 'none';
 
     tarefas.forEach(item => {
-        const li = document.createElement('li');
-
-        li.innerHTML = `
-            <h5>${item.tarefa}</h5>
-            <p>${item.descricao}</p>
-        `;
-
-        lista.appendChild(li);
+        adicionarTarefaNaTela(item);
     });
 }
+
+
+function adicionarTarefaNaTela(item) {
+    const li = document.createElement('li');
+
+    li.innerHTML = `
+        <h5>${item.tarefa}</h5>
+        <p>${item.descricao}</p>
+        <div class="actions">
+            <box-icon  name="trash" size="sm"  onclick="deletarTarefa('${item.id}')">
+            </box-icon>
+        </div>
+    `;
+
+    lista.appendChild(li);
+}
+
+
 
 
 function novaTarefa(event) {
@@ -81,14 +105,38 @@ function novaTarefa(event) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(tarefa)
     })
-    .then(() => {
-        fecharModal();
-        buscarTarefas(); // recarrega a lista
-    });
+        .then(res => res.json())
+        .then(tarefaCriada => {
+            
+            adicionarTarefaNaTela(tarefaCriada);
+            // alert('Tarefa criada com sucesso');
+            fecharModal();
+            mostrarMensagem('Tarefa criada com sucesso');
+        })
+        .catch(() => mostrarMensagem('Erro ao criar tarefa'));
 }
 
-// Chama a função para buscar as tarefas quando a página é carregada
-window.onload = buscarTarefas;
+
+function deletarTarefa(id) {
+    fetch(`http://localhost:3000/tarefas/${id}`, {
+        method: 'DELETE'
+    })
+        .then(() => {
+            mostrarMensagem('Tarefa deletada com sucesso');
+            buscarTarefas(); // recarrega a lista
+        })
+        .catch(() => {
+            mostrarMensagem('Erro ao deletar tarefa');
+        });
+}
 
 
 
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', buscarTarefas);
