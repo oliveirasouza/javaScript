@@ -1,21 +1,79 @@
 {
-    "tarefas": [
-        {
-            "file": "index.html",
-            "edits": [
-                {
-                    "tipo": "modificação",
-                    "detalhes": "Alterado o atributo lang de 'e' para 'pt-BR' na tag <html>."
-                },
-                {
-                    "tipo": "modificação",
-                    "detalhes": "Alterado o conteúdo da tag <title> de 'Document' para 'Java Script'."
-                },
-                {
-                    "tipo": "adição",
-                    "detalhes": "Adicionada a tag <script> com o atributo src apontando para 'index.js' antes do fechamento da tag </body>."
-                }
-            ]
-        }
-    ]
+  "tarefas": [
+    {
+      "id": "55be",
+      "tarefa": "ttr",
+      "descricao": "trtr"
+    },
+    {
+      "id": "55d0",
+      "tarefa": "teste",
+      "descricao": "testetet"
+    },
+    {
+      "id": "afba",
+      "tarefa": "Teste",
+      "descricao": "tete"
+    },
+    {
+      "id": "be17",
+      "tarefa": "tete",
+      "descricao": "tete"
+    },
+    {
+      "id": "5d5a",
+      "tarefa": "tete",
+      "descricao": "tete"
+    },
+    {
+      "id": "1d31",
+      "tarefa": "tete",
+      "descricao": "tete"
+    },
+    {
+      "id": "8066",
+      "tarefa": "tetete",
+      "descricao": "tetet"
+    },
+    {
+      "id": "2d19",
+      "tarefa": "oliveira",
+      "descricao": "dados"
+    },
+    {
+      "id": "a436",
+      "tarefa": "oliveira 3",
+      "descricao": "dsdsds"
+    },
+    {
+      "id": "4cfe",
+      "tarefa": "teste",
+      "descricao": "fdf"
+    },
+    {
+      "id": "76ac",
+      "tarefa": "oliveira 66565",
+      "descricao": "erere"
+    },
+    {
+      "id": "77f6",
+      "tarefa": "gfgfgfasfasfafasfafa",
+      "descricao": "fafafafa"
+    },
+    {
+      "id": "f8a3",
+      "tarefa": "Francisco Oliveira ",
+      "descricao": "Oliveira de Sousa"
+    },
+    {
+      "id": "ce3a",
+      "tarefa": "Tatiana Amor ",
+      "descricao": "Teste"
+    },
+    {
+      "id": "022a",
+      "tarefa": "Larissa",
+      "descricao": "Teste"
+    }
+  ]
 }

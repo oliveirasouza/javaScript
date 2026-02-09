@@ -1,84 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Script</title>
+    <title>Curso Java Script</title>
     <link rel="stylesheet" href="style.css">
 
 
 </head>
+
 <body>
-    
     <header>
         <input type="text" id="busca" placeholder="Pesquisar por titulo...">
     </header>
     <main>
         <section id="tarefas">
             <!-- As tarefas serão inseridas aqui dinamicamente -->
-             <h2>
-                Tarefas <button  id="btnNovaTarefa" onclick="novaTarefa()">Nova tarefa</button>
-             </h2>
-             <ul>
-                    <!-- Exemplo de tarefa -->
-                    <li>
-                        <h5>Comprar leite</h5>
-                        <p>Comprar 2 litros de leite no supermercado.</p>
-                    </li>
-                     <!-- Exemplo de tarefa -->
-                    <li>
-                        <h5>Comprar leite</h5>
-                        <p>Comprar 2 litros de leite no supermercado.</p>
-                    </li>
-                     <!-- Exemplo de tarefa -->
-                    <li>
-                        <h5>Comprar café</h5>
-                        <p>Comprar 2 café no supermercado.</p>
-                    </li>
-                     <!-- Exemplo de tarefa -->
-                    <li>
-                        <h5>Comprar açúcar</h5>
-                        <p>Comprar 2 litros de açúcar no supermercado.</p>
-                    </li>
-                     <!-- Exemplo de tarefa -->
-                    <li>
-                        <h5>Comprar pão</h5>
-                        <p>Comprar 2 pães no supermercado.</p>
-                    </li>
-                     <!-- Exemplo de tarefa -->
-                    <li>
-                        <h5>Comprar farinha</h5>
-                        <p>Comprar 2 litros de farinha no supermercado.</p>
-                    </li>
-                     <!-- Exemplo de tarefa -->
-                    <li>
-                        <h5>Comprar manteiga</h5>
-                        <p>Comprar 2 litros de manteiga no supermercado.</p>
-                    </li>
-                     <!-- Exemplo de tarefa -->
-                    <li>
-                        <h5>Comprar maizena</h5>
-                        <p>Comprar 2 litros de maizena no supermercado.</p>
-                    </li>
-                     <!-- Exemplo de tarefa -->
-                    <li>
-                        <h5>Comprar feijão</h5>
-                        <p>Comprar 2 litros de feijão no supermercado.</p>
-                    </li>
-             </ul>
-             <h6>
-                <p id="empty-message">Nenhuma tarefa encontrada!</p>
-             </h6>
+            <h2>
+                Tarefas <button id="btnNovaTarefa" onclick="abrirModal()">Nova tarefa</button>
+            </h2>
+            <div id="listaTarefas">
+                <ul id="lista"></ul>
+            </div>
 
+            <h6>
+                <p id="empty-message">Nenhuma tarefa encontrada!</p>
+            </h6>
         </section>
-        <section id="overlay" onclick="fecharModal()"></section>></section>
-        <div class="modal" id="novaTarefa">
-            <form >
+        <section id="overlay" onclick="fecharModal()"></section>
+        <div class="modal" id="abrirModal">
+            <form onsubmit="novaTarefa(event)">
                 <h3>Criar tarefa <box-icon name='x' size='md' onclick="fecharModal()"></box-icon></h3>
                 <label for="titulo">Título:</label>
                 <input type="text" id="titulo" name="titulo" required>
                 <label for="descricao">Descrição:</label>
-                <textarea  id="descricao"></textarea>
+                <textarea id="descricao" required></textarea>
                 <button>Criar</button>
             </form>
 
@@ -89,4 +46,5 @@
 
 
 </body>
+
 </html>

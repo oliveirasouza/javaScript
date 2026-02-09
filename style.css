@@ -58,6 +58,21 @@ header input {
 }
 
 
+#tarefas ul li .action{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+  cursor: pointer;
+  fill: #999;
+}
+
+
+#tarefas ul li .action box-icon:hover{
+   fill: red;
+   cursor: pointer;
+}
+
+
 #tarefas h2 {
     position: relative;
     font-size: 32px;
