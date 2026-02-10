@@ -1,27 +1,7 @@
 {
   "tarefas": [
     {
-      "id": "1bf6",
-      "tarefa": "teste",
-      "descricao": "tete"
-    },
-    {
-      "id": "e943",
-      "tarefa": "dsdsdsds",
-      "descricao": "dsdsd"
-    },
-    {
-      "id": "92d9",
-      "tarefa": "dsdsdsds",
-      "descricao": "dsdsds"
-    },
-    {
       "id": "389e",
-      "tarefa": "teste",
-      "descricao": "teste"
-    },
-    {
-      "id": "8eab",
       "tarefa": "teste",
       "descricao": "teste"
     },
@@ -29,16 +9,6 @@
       "id": "9215",
       "tarefa": "dsdsdsdsdsds",
       "descricao": "dsdsddddddddddddddddddddddd"
-    },
-    {
-      "id": "0958",
-      "tarefa": "ds",
-      "descricao": "ddddddddddd"
-    },
-    {
-      "id": "b370",
-      "tarefa": "ddddddddddddddddddd",
-      "descricao": "dddddddddddddddddddddddd"
     }
   ]
 }
