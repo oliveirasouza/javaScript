@@ -9,6 +9,16 @@ const lista = document.getElementById('lista');
 const emptyMessage = document.getElementById('empty-message');
 const feedbackMessage = document.getElementById('feedback-message');
 
+document.getElementById('btnNovaTarefa').addEventListener('click', abrirModal);
+document.getElementById('btnFecharModal').addEventListener('click', fecharModal);
+document.getElementById('overlay').addEventListener('click', fecharModal);
+document.getElementById('form-tarefa').addEventListener('submit', novaTarefa);
+document.getElementById('busca').addEventListener('input', pesquisarTarefas);
+
+
+
+
+
 /**
  * ===============================
  * Controle do Modal
@@ -19,22 +29,16 @@ const feedbackMessage = document.getElementById('feedback-message');
  * Abre o modal e exibe o overlay
  */
 function abrirModal() {
-    overlay.style.visibility = 'visible';
-    overlay.style.opacity = '1';
-
-    modal.style.visibility = 'visible';
-    modal.style.opacity = '1';
+    overlay.classList.add('active');
+    modal.classList.add('active');
 }
 
 /**
  * Fecha o modal e oculta o overlay
  */
 function fecharModal() {
-    overlay.style.visibility = 'hidden';
-    overlay.style.opacity = '0';
-
-    modal.style.visibility = 'hidden';
-    modal.style.opacity = '0';
+    overlay.classList.remove('active');
+    modal.classList.remove('active');
 }
 
 /**
@@ -152,6 +156,8 @@ function novaTarefa(event) {
         .then(tarefaCriada => {
             adicionarTarefaNaTela(tarefaCriada);
             fecharModal();
+            let form = document.getElementById('form-tarefa');
+            form.reset();
             mostrarMensagem('Tarefa criada com sucesso');
         })
         .catch(() => mostrarMensagem('Erro ao criar tarefa'));
@@ -177,6 +183,31 @@ function deletarTarefa(id) {
         })
         .catch(() => mostrarMensagem('Erro ao deletar tarefa'));
 }
+
+
+/**
+ * ===============================
+ * Pesquisa de Tarefas
+ * ===============================
+ */
+
+
+function pesquisarTarefas(event) {
+    const query = event.target.value.toLowerCase();
+    const tarefas = lista.getElementsByTagName('li');
+
+    Array.from(tarefas).forEach(tarefa => {
+        const titulo = tarefa.querySelector('h5').innerText.toLowerCase();
+        const descricao = tarefa.querySelector('p').innerText.toLowerCase();
+
+        if (titulo.includes(query) || descricao.includes(query)) {
+            tarefa.style.display = '';
+        } else {
+            tarefa.style.display = 'none';
+        }
+    });
+}
+
 
 /**
  * ===============================

@@ -1,52 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso Java Script</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso JavaScript</title>
 
+    <link rel="stylesheet" href="style.css" />
 
+    <!-- Icons -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js" defer></script>
+
+    <!-- Script principal -->
+    <script src="index.js" defer></script>
 </head>
 
 <body>
     <header>
-        <input type="text" id="busca" placeholder="Pesquisar por titulo...">
+        <input 
+            type="text" 
+            id="busca" 
+            placeholder="Pesquisar por título..." 
+        />
     </header>
+
     <main>
         <section id="tarefas">
-            <!-- As tarefas serão inseridas aqui dinamicamente -->
             <h2>
-                Tarefas <button id="btnNovaTarefa" onclick="abrirModal()">Nova tarefa</button>
+                Tarefas
+                <button id="btnNovaTarefa">Nova tarefa</button>
             </h2>
+
             <div id="listaTarefas">
                 <ul id="lista"></ul>
+
                 <p id="feedback-message" style="display: none;"></p>
-
-            </div>
-
-            <h6>
                 <p id="empty-message">Nenhuma tarefa encontrada!</p>
-            </h6>
+            </div>
         </section>
-        <section id="overlay" onclick="fecharModal()"></section>
-        <div class="modal" id="abrirModal">
-            <form onsubmit="novaTarefa(event)">
-                <h3>Criar tarefa <box-icon name='x' size='md' onclick="fecharModal()"></box-icon></h3>
-                <label for="titulo">Título:</label>
-                <input type="text" id="titulo" name="titulo" required>
-                <label for="descricao">Descrição:</label>
-                <textarea id="descricao" required></textarea>
-                <button>Criar</button>
-            </form>
 
+        <!-- Overlay -->
+        <section id="overlay"></section>
+
+        <!-- Modal -->
+        <div class="modal" id="abrirModal">
+            <form id="form-tarefa">
+                <h3>
+                    Criar tarefa
+                    <box-icon name="x" size="md" id="btnFecharModal"></box-icon>
+                </h3>
+
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" required />
+
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" required></textarea>
+
+                <button type="submit">Criar</button>
+            </form>
         </div>
     </main>
-    <script src="index.js"></script>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-
-
 </body>
-
 </html>
